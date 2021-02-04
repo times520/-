@@ -1,17 +1,15 @@
 #pragma once
-#define ROW 3
-#define COL 3
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#define ROW 9
+#define COL 9
+#define bombsum 10
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#define ROWS ROW+2
+#define COLS COL+2
 
-//声明
-void InitBoard(char board[ROW][COL], int row, int col);
-void DisplayBoard(char board[ROW][COL], int row, int col);
-void PlayerMove(char board[ROW][COL], int row, int col);
-void ComputerMove(char board[ROW][COL], int row, int col);
-
-//判断函数
-char IsWin(char board[ROW][COL], int row, int col);
-//平局Q   继续C   电脑赢#    玩家赢*
+void Initboard(char board[ROWS][COLS], int rows, int cols, char set);
+void DisplayBoard(char board[ROWS][COLS], int row, int col);
+void SetMine(char board[ROWS][COLS], int row, int col);
+void FindMine(char boardmine[ROWS][COLS], char boardshow[ROWS][COLS], int row, int col);
