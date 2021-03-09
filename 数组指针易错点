@@ -1,0 +1,131 @@
+//#define N_VALUES 5
+//float values[N_VALUES];
+//float* vp;
+//int main()
+//{
+//	//for (vp = &values[0]; vp < &values[N_VALUES];)
+//	//{
+//	//	*vp++ = 0;
+//	//}
+//	for (vp = &values[N_VALUES - 1]; vp >= &values[0]; vp--)
+//	{
+//		*vp = 0;
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	printf("%d\n", arr[9] - arr[0]);
+//	return 0;
+//}
+
+////int my_strlen(char* arr)
+////{
+////	char* start = arr;
+////	char* end = arr;
+////	while (*end != '\0')
+////	{
+////		end++;
+////	}
+////	return end - start;
+////}
+////
+////int main()
+////{
+////	char arr[] = "bit";
+////	int len = my_strlen(arr);
+////	printf("%d\n", len);
+////	return 0;
+////}
+
+//int main()
+//{
+//	int arr[10] = { 0,1,2,3,4,5,6,7,8,9 };
+//	printf("%p\n", &arr);
+//	printf("%p\n", &arr[0]);
+//	//1.&arr-&数组名-数组名不是首元素地址-表示整个数组-取的是整个数组的地址
+//	//2.sizeof（arr）-sizeof（数组名）-数组名表示整个数组字节大小
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 0 };
+//
+//	printf("%p\n", arr);//00F6FBF8
+//	printf("%p\n", arr + 1);//00F6FBFC
+//
+//	printf("%p\n", &arr[0]);//00F6FBF8
+//	printf("%p\n", &arr[0] + 1);//00F6FBFC
+//
+//	printf("%p\n", &arr);//00F6FBF8
+//	printf("%p\n", &arr + 1);//00F6FC20
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int* pa = &arr[10];
+//	int** ppa = &pa;//二级指针ppa
+//	int*** pppa = &ppa;//三级指针pppa
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	int a = 10;
+//	int b = 20;
+//	int c = 30;
+//	int* arr[3] = { &a,&b,&c };
+//	for (i = 0; i < 3; i++)
+//	{
+//		printf("%d\n", *(arr[i]));
+//	}
+//}
+
+//int main()//无论元素大小是多大直接，数字存储在前面的字节
+//{
+//	int arr[5] = { 1,2,3,4,5 };//一个元素大小四个直接
+//	short* p = (short*)arr;//一步两个字节
+//	int i = 0;
+//	for (i = 0; i < 4; i++)
+//	{
+//		*(p + i) = 0;
+//	}
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d", arr[i]);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 0x11223344;//数值在内存中倒放，即44332211
+//	char* pc = (char*)&a;//一步两个字节
+//	*pc = 0;//一次更改内存中前面两个字节的数字
+//	printf("%x\n", a);
+//	return 0;
+//}
+int i;//全局变量不初始化默认为0；局部变量不初始化默认为随机值
+int main()
+{
+	i--;
+	if (i > sizeof(i))//在这里原本的i=-1，但是在运算时符号转正
+	{//-1
+		//100000000000000000000000000000000001原码
+		//111111111111111111111111111111111110反码
+	//即i=111111111111111111111111111111111111补码--在这里转正
+		printf(">\n");
+	}
+	else
+	{
+		printf("<\n");
+	}
+	return 0;
+}
